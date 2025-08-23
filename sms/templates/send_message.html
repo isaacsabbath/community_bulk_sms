@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Bulk SMS</title>
+</head>
+<body>
+    <h1>Send Message to Leaders</h1>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="content" rows="4" cols="50" placeholder="Type your message here..."></textarea><br><br>
+        <button type="submit">Send SMS</button>
+    </form>
+
+    {% for msg in messages %}
+        <p>{{ msg }}</p>
+    {% endfor %}
+</body>
+</html>
