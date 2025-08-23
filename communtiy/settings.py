@@ -27,7 +27,7 @@ DEBUG = True
 
 # settings.py
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '319405420cbc.ngrok-free.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '']
 
 import os
 # Application definition
