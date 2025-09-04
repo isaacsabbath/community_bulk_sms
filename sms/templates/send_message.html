@@ -1,18 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Send Bulk SMS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk SMS System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* move to top instead of center */
+            height: 100vh;
+            margin: 0;
+            padding-top: 60px; /* push it slightly down from the top */
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 450px;
+        }
+
+        .main-heading {
+            font-size: 24px;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: none;
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .messages {
+            margin-top: 20px;
+        }
+
+        .messages p {
+            background: #e6f4ea;
+            color: #2e7d32;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Send Message to Leaders</h1>
-    <form method="post">
-        {% csrf_token %}
-        <textarea name="content" rows="4" cols="50" placeholder="Type your message here..."></textarea><br><br>
-        <button type="submit">Send SMS</button>
-    </form>
+    <div class="container">
+        <div class="main-heading">Bulk SMS System for Juakali, Marurui Residents</div>
+        <h1>Send Message</h1>
+        <form method="post">
+            {% csrf_token %}
+            <textarea name="content" rows="4" placeholder="Type your message here..."></textarea><br>
+            <button type="submit">Send SMS</button>
+        </form>
 
-    {% for msg in messages %}
-        <p>{{ msg }}</p>
-    {% endfor %}
+        <div class="messages">
+            {% for msg in messages %}
+                <p>{{ msg }}</p>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>

@@ -15,7 +15,7 @@ def send_message_view(request):
             if result["status"] == "success":
                 msg = Message.objects.create(content=content)
                 msg.sent_to.set(Leader.objects.all())
-                messages.success(request, "Message sent successfully to all leaders!")
+                messages.success(request, "Message sent successfully to all Residents!")
             else:
                 messages.error(request, f"Failed: {result['message']}")
         else:
